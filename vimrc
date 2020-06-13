@@ -65,6 +65,9 @@ nnoremap <leader>s :mksession<CR>
 
 " open ag.vim
 nnoremap <leader>a :Ag
+
+" NERD Tree
+nnoremap <silent> <expr> <F6> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 " }}}
 " CtrlP {{{
 " CtrlP settings
