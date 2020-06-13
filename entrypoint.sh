@@ -20,5 +20,5 @@ chown -R david: /home/david
 # Setting permissions on docker.sock
 chown david: /var/run/docker.sock
 
-exec /sbin/su -c tmux david "$@"
+exec /usr/bin/sudo -u david tmux "$@"
 
