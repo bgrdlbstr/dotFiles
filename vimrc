@@ -67,6 +67,9 @@ nnoremap <leader>s :mksession<CR>
 nnoremap <leader>a :Ag
 
 " NERD Tree
+autocmd VimEnter * if !argc() | NERDTree | endif 
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+nmap <silent> <F5> :NERDTreeToggle<CR>
 nnoremap <silent> <expr> <F6> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 " }}}
 " CtrlP {{{
