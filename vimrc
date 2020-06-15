@@ -120,6 +120,7 @@ set writebackup
 " Vim Plug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'altercation/solarized'
 Plug 'scrooloose/syntastic'
