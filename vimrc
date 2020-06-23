@@ -58,7 +58,7 @@ let mapleader=","       " leader is comma
 nnoremap <leader>u :GundoToggle<CR>
 
 " edit vimrc/zshrc and load vimrc bindings
-nnoremap <leader>ev :vsp $MYVIMRC<CR>
+vnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
@@ -69,10 +69,25 @@ nnoremap <leader>s :mksession<CR>
 nnoremap <leader>a :Ag
 
 " NERD Tree
-autocmd VimEnter * if !argc() | NERDTree | endif 
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <C-t> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-nmap <silent> <F5> :NERDTreeToggle<CR>
-nnoremap <silent> <expr> <F6> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+
+" NERDTree git plugin
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
 " }}}
 " CtrlP {{{
 " CtrlP settings
@@ -148,6 +163,9 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'ap/vim-css-color'
 Plug 'airblade/vim-gitgutter'
 Plug 'plasticboy/vim-markdown'
+Plug 'sheerun/vim-polyglot'
+Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 " }}}
 " TMUX {{{
