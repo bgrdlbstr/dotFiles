@@ -1,5 +1,7 @@
 " Dave Palmer
 " Colors {{{
+set nocompatible
+
 colorscheme badwolf         " awesome colorscheme
 syntax enable           " enable syntax processing
 set termguicolors
@@ -79,6 +81,10 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 " }}}
+" Rainbow {{{
+" enable rainbow parens for everything
+let g:rainbow_active = 1
+" }}}
 " Syntastic {{{
 let g:syntastic_python_flake8_args='--ignore=E501'
 let g:syntastic_ignore_files = ['.java$']
@@ -118,6 +124,14 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 " }}}
 " Vim Plug {{{
+
+" autoload Plug if needed
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -130,6 +144,10 @@ Plug 'ervandew/ag'
 Plug 'kien/ctrlp.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'moll/vim-node'
+Plug 'frazrepo/vim-rainbow'
+Plug 'ap/vim-css-color'
+Plug 'airblade/vim-gitgutter'
+Plug 'plasticboy/vim-markdown'
 call plug#end()
 " }}}
 " TMUX {{{
