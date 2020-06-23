@@ -178,6 +178,11 @@ else
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 " }}}
+" Emmet {{{
+" Emmet only enabled for HTML/CSS
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+" }}}
 " Custom Functions {{{
 " toggle between number and relativenumber
 function! ToggleNumber()
