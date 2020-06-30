@@ -58,7 +58,7 @@ let mapleader=","       " leader is comma
 nnoremap <leader>u :GundoToggle<CR>
 
 " edit vimrc/zshrc and load vimrc bindings
-vnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
