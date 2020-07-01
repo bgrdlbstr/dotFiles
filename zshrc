@@ -115,6 +115,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias addkey='eval $(ssh-agent) && ssh-add'
 alias ping6_all='ping6 -I eth0 ff02::1'
+alias f='vim `fzf -i`'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

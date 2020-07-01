@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -qq -y \
-  vim git zsh tmux openssh-client bash curl less man silversearcher-ag sudo
+  vim git zsh tmux openssh-client bash curl less man silversearcher-ag sudo fzf
 
 # Create a user called 'david'
 RUN useradd -ms /bin/zsh david
